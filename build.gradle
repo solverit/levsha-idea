@@ -36,11 +36,13 @@ jacocoTestReport {
 check.dependsOn jacocoTestReport
 
 intellij {
-    version '2018.1.4'
+    version '2018.1'
+    pluginName 'IntelliJ Levsha'
+    type 'IC'
 }
 
-patchPluginXml {
-    changeNotes """
-      First release.<br>
-      """
+publishPlugin {
+    username publishUsername
+    password publishPassword
+    channels 'default'
 }

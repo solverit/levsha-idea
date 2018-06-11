@@ -4,8 +4,32 @@
     <vendor email="solver.it@gmail.com" url="http://mikheev.me">Andrey Mikheev</vendor>
 
     <description><![CDATA[
-    Levsha converter html to eDSL.<br>
+      <h1>Levsha</h1>
+      <br/>
+      <a href="https://github.com/fomkin/levsha">Website</a> |
+      <a href="https://github.com/solverit/levsha-idea">GitHub</a> |
+      <a href="https://github.com/solverit/levsha-idea/issues">Issues</a> |
+      <br/>
+      <br/>
+      <b>Levsha</b> is a plugin for Levsha (Fast Scala eDSL for HTML).<br>
+      <b>Features</b>
+      <ul>
+        <li>Convert html to eDSL</li>
+      </ul>
+      <br/>
+      <i>- ctrl + shift + G for convert from clipboard, or ctrl + alt + G for convert selected text</i>
     ]]></description>
+
+    <change-notes><![CDATA[
+        <a href="https://github.com/solverit/levsha-idea/tree/v1.0"><b>v1.0</b></a> (2018-06-11) <br/><br/>
+        <i>Fixed:</i>
+        <ul>
+            <li>Convert HTML to eDSL support</li>
+            <li>Basic functionality</li>
+        </ul>
+        <a href="https://github.com/solverit/levsha-idea/blob/master/CHANGELOG.md"><b>Full Changelog History</b></a>
+    ]]>
+    </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
