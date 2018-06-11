@@ -34,13 +34,12 @@ public class PasteHandler extends EditorWriteActionHandler {
 
     String html;
     if(fromClipboard) {
-      String clipboard = CopyPasteManager.getInstance().getContents(DataFlavor.stringFlavor);
-      html = Optional.ofNullable(clipboard).orElse("");
+      html = CopyPasteManager.getInstance().getContents(DataFlavor.stringFlavor);
     } else {
       html = editor.getSelectionModel().getSelectedText();
     }
 
-    String dsl = Converter.convert(html);
+    String dsl = Converter.convert(Optional.ofNullable(html).orElse(""));
 
     EditorModificationUtil.insertStringAtCaret(editor, dsl);
   }
