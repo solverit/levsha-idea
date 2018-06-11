@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'org.jetbrains.intellij' version '0.3.2'
+}
+
+group 'me.mikheev'
+version '1.0'
+
+sourceCompatibility=1.8
+targetCompatibility=1.8
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.7'
+}
+
+jar {
+    archiveName 'levsha-idea.jar'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "ch.digitalfondue.jfiveparse:jfiveparse:0.5.3"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+intellij {
+    version '2018.1.4'
+}
+
+patchPluginXml {
+    changeNotes """
+      First release.<br>
+      """
+}

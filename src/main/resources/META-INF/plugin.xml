@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>me.mikheev.levsha-idea</id>
+    <name>Levsha</name>
+    <vendor email="solver.it@gmail.com" url="http://mikheev.me">Andrey Mikheev</vendor>
+
+    <description><![CDATA[
+    Levsha converter html to eDSL.<br>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="ConvertClipboardHtmlToDsl" class="me.mikheev.InvokeClipboardAction" text="Convert clipboard Html to Dsl">
+            <add-to-group group-id="RefactoringMenu" anchor="last"/>
+            <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
+            <keyboard-shortcut first-keystroke="control shift G" keymap="$default"/>
+        </action>
+        <action id="ConvertSelectedHtmlToDsl" class="me.mikheev.InvokeSelectedAction" text="Convert selected Html to Dsl">
+            <add-to-group group-id="RefactoringMenu" anchor="last"/>
+            <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
+            <keyboard-shortcut first-keystroke="alt shift G" keymap="$default"/>
+        </action>
+    </actions>
+</idea-plugin>
