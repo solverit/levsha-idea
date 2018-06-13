@@ -39,8 +39,20 @@ public class PasteHandler extends EditorWriteActionHandler {
       html = editor.getSelectionModel().getSelectedText();
     }
 
-    String dsl = Converter.convert(Optional.ofNullable(html).orElse(""));
+    String indent = calcIndent(editor);
+    String code = Optional.ofNullable(html).orElse("");
+    String dsl = Converter.convert(code, indent);
 
     EditorModificationUtil.insertStringAtCaret(editor, dsl);
+  }
+
+  private String calcIndent(Editor editor) {
+    Caret currentCaret = editor.getCaretModel().getCurrentCaret();
+    int offset = currentCaret.getSelectionStartPosition().getColumn();
+    String indent = "";
+    if(offset > 0) {
+      indent = String.format("%-" + offset + "s", " ");
+    }
+    return indent;
   }
 }

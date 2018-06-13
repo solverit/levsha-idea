@@ -12,7 +12,7 @@ public class Converter {
   private static final String HTML = "html";
   private static final String BODY = "body";
 
-  public static String convert(String html) {
+  public static String convert(String html, String indent) {
 
     StringBuilder result = new StringBuilder();
 
@@ -28,13 +28,13 @@ public class Converter {
           if(result.length() != 0) {
             result.append(",\n");
           }
-          result.append(nodeToSymbolDsl(node, ""));
+          result.append(nodeToSymbolDsl(node, indent));
         });
 
     return result.toString();
   }
 
-  private static String nodeToSymbolDsl(Node nnode, String ident) {
+  private static String nodeToSymbolDsl(Node nnode, String indent) {
     StringBuilder builder = new StringBuilder();
 
     if(nnode.getNodeType() == Node.ELEMENT_NODE) {
@@ -42,7 +42,7 @@ public class Converter {
       builder.append("'").append(node.getNodeName().toLowerCase()).append("(\n");
 
       node.getAttributes().forEach(attr -> {
-        builder.append(ident).append("  '").append(attr.getName()).append(" /= \"").append(normalizeText(attr.getValue())).append('"');
+        builder.append(indent).append("  '").append(attr.getName()).append(" /= \"").append(normalizeText(attr.getValue())).append('"');
         builder.append(",\n");
       });
 
@@ -54,19 +54,19 @@ public class Converter {
         boolean perv = false;
         List<Node> childNodes = node.getChildNodes();
         for(Node childNode : childNodes) {
-          String child = nodeToSymbolDsl(childNode, ident + "  ");
+          String child = nodeToSymbolDsl(childNode, indent + "  ");
           if(!child.isEmpty()) {
             if(perv) {
               builder.append(",\n");
             }
-            builder.append("  ").append(ident).append(child);
+            builder.append("  ").append(indent).append(child);
             perv = true;
           }
         }
         builder.append("\n");
       }
 
-      builder.append(ident).append(")");
+      builder.append(indent).append(")");
     }
 
     if(nnode.getNodeType() == Node.TEXT_NODE) {

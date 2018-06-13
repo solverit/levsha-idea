@@ -21,11 +21,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <a href="https://github.com/solverit/levsha-idea/tree/v1.0"><b>v1.0</b></a> (2018-06-11) <br/><br/>
+        <a href="https://github.com/solverit/levsha-idea/tree/v1.1"><b>v1.1</b></a> (2018-06-13) <br/><br/>
         <i>Fixed:</i>
         <ul>
-            <li>Convert HTML to eDSL support</li>
-            <li>Basic functionality</li>
+            <li>Add control of text indentation</li>
         </ul>
         <a href="https://github.com/solverit/levsha-idea/blob/master/CHANGELOG.md"><b>Full Changelog History</b></a>
     ]]>
