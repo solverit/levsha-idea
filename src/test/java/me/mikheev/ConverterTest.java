@@ -21,7 +21,7 @@ public class ConverterTest {
         "  \"Hello world\"\n" +
         ")";
 
-    String result = Converter.convert(html);
+    String result = Converter.convert(html, "");
 
     assertEquals(result, dsl);
   }
@@ -89,7 +89,7 @@ public class ConverterTest {
         "  )\n" +
         ")";
 
-    String result = Converter.convert(html);
+    String result = Converter.convert(html, "");
 
     assertEquals(result, dsl);
   }
